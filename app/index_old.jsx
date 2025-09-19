@@ -6,7 +6,8 @@ const Header = ({ router }) => ( // Terima 'router' sebagai prop
     <TouchableOpacity onPress={() => router.push('/akun')}>
         <View style={styles.headerContainer}>
         <Image
-            source={{ uri: 'https://i.pravatar.cc/150?img=68' }}
+            // source={{ uri: 'https://i.pravatar.cc/150?img=68' }}
+            source={require("../assets/img/profil1.jpg")}
             style={styles.profileImage}
         />
         <Text style={styles.headerText}>Halo, Hidayat Taufiq</Text>
@@ -14,7 +15,7 @@ const Header = ({ router }) => ( // Terima 'router' sebagai prop
     </TouchableOpacity>
     );
 
-    const HealthCard = ({ icon, title, value, unit, status, color }) => (
+const HealthCard = ({ icon, title, value, unit, status, color }) => (
     <TouchableOpacity style={[styles.healthCard, { backgroundColor: color }]}>
         <View style={styles.cardContent}>
         <View style={styles.cardInfo}>
@@ -31,47 +32,47 @@ const Header = ({ router }) => ( // Terima 'router' sebagai prop
         <Ionicons name="arrow-forward-sharp" size={24} color="#555" />
         </View>
     </TouchableOpacity>
-    );
+);
 
-    const EmergencyCallCard = () => (
-    <TouchableOpacity onPress={() => Linking.openURL('tel:112')} style={[styles.emergencyCard]}>
-        <View style={styles.emergencyContent}>
-        <Ionicons name="call" size={36} color="#fff" style={styles.emergencyIcon} />
-        <View style={styles.emergencyInfo}>
-            <Text style={styles.emergencyNumber}>112</Text>
-            <Text style={styles.emergencyText}>Panggilan Darurat</Text>
-        </View>
-        </View>
-    </TouchableOpacity>
-    );
+const EmergencyCallCard = () => (
+<TouchableOpacity onPress={() => Linking.openURL('tel:112')} style={[styles.emergencyCard]}>
+    <View style={styles.emergencyContent}>
+    <Ionicons name="call" size={36} color="#fff" style={styles.emergencyIcon} />
+    <View style={styles.emergencyInfo}>
+        <Text style={styles.emergencyNumber}>112</Text>
+        <Text style={styles.emergencyText}>Panggilan Darurat</Text>
+    </View>
+    </View>
+</TouchableOpacity>
+);
 
 
     export default function App() {
     const router = useRouter(); // Dapatkan hook useRouter di sini
     return (
         <SafeAreaView style={styles.container}>
-        <Stack.Screen options={{ headerShown: false }} />
-        {/* Teruskan 'router' sebagai prop */}
-        <Header router={router} /> 
-        <View style={styles.mainContent}>
-            <HealthCard
-            icon={<Ionicons name="heart-outline" size={32} color="#555" />}
-            title="Detak Jantung"
-            value="77"
-            unit="BPM"
-            status="Normal"
-            color="#e0eaff"
-            />
-            <HealthCard
-            icon={<FontAwesome5 name="wind" size={28} color="#555" />}
-            title="Oksigen Tubuh"
-            value="98"
-            unit="%"
-            status="Normal"
-            color="#e0eaff"
-            />
-            <EmergencyCallCard />
-        </View>
+            <Stack.Screen options={{ headerShown: false }} />
+            {/* Teruskan 'router' sebagai prop */}
+            <Header router={router} /> 
+            <View style={styles.mainContent}>
+                <HealthCard
+                icon={<Ionicons name="heart-outline" size={32} color="#555" />}
+                title="Detak Jantung"
+                value="77"
+                unit="BPM"
+                status="Normal"
+                color="#e0eaff"
+                />
+                <HealthCard
+                icon={<FontAwesome5 name="wind" size={28} color="#555" />}
+                title="Oksigen Tubuh"
+                value="98"
+                unit="%"
+                status="Normal"
+                color="#e0eaff"
+                />
+                <EmergencyCallCard />
+            </View>
         </SafeAreaView>
     );
 }

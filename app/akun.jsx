@@ -12,7 +12,7 @@ export default function Akun() {
           {/* Foto Profil */}
           <Image
               // source={{ uri: "https://i.ibb.co/XFfq1zj/old-man-smile.jpg" }}
-              source={require("../../assets/img/profil1.jpg")}
+              source={require("../assets/img/profil1.jpg")}
               style={styles.profileImage}
           />
 
